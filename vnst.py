@@ -110,7 +110,7 @@ def video_style_transfer(content_path, style_path, output_path,
     prev_frame_stylized = None
     opti_bar = tqdm(total=iters, position=0, leave=True)
     pbar = tqdm(total=int(content_gif.n_frames), position=1, leave=True)
-    for frame in range(0, 6):
+    for frame in range(0, int(content_gif.n_frames)):
         content_gif.seek(frame)
         content_img = U.process_image(content_gif.convert('RGB'), resize, device)
         transferred_img = __transfer(sce, content_img, style_img, content_weight,
