@@ -8,6 +8,9 @@ from torch.autograd import Variable
 import torch.nn as nn
 
 def load_image(path, resize, device):
+    """
+    Load an image.
+    """
     if not '.' in path:
         path = path + '.png'
     image = Image.open(path, mode='r')
@@ -15,6 +18,9 @@ def load_image(path, resize, device):
 
 
 def process_image(image, resize, device):
+    """
+    Resizes an image to a given maximum size dimension (keeps scaling) and converts it to a tensor.
+    """
     image = T.ToTensor()(image)
     shape = torch.tensor(image.shape)[1:]
     scale = resize / torch.max(shape)
@@ -24,6 +30,9 @@ def process_image(image, resize, device):
 
 
 def show_image(img):
+    """
+    Show an tensor image.
+    """
     img = img.cpu().clone()
     plt.imshow(T.functional.to_pil_image(img))
     plt.show()
@@ -35,7 +44,7 @@ def warp(x, flo):
     flo: [B, 2, H, W] flow
 
     SOURCE: https://github.com/NVlabs/PWC-Net/blob/master/PyTorch/models/PWCNet.py#L139
-    PWC-Net is under Creative Commons license.
+    PWC-Net is distributed under Creative Commons license.
     """
     B, C, H, W = x.size()
     # mesh grid 

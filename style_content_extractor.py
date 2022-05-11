@@ -3,6 +3,13 @@ import torch.nn as nn
 from torchvision import transforms as T
 from torchvision.models.vgg import vgg19
 
+"""
+This module is used to extract the style and content features from an image.
+
+It is based on a pre-trained version of VGG19, included in PyTorch (TorchVision).
+
+Note that the network is frozen during the whole proccess!
+"""
 class StyleContentExtractor(nn.Module):
     def __init__(self, style_layers, content_layers, device):
         super(StyleContentExtractor, self).__init__()

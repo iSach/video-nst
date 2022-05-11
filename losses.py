@@ -2,6 +2,9 @@ import torch.nn.functional as F
 import utils as U
 
 def style_content_loss(outputs, style_targets, content_targets, style_weight, content_weight, num_style_layers, num_content_layers):
+    """
+    Computes and returns the style and content losses.
+    """
     style_outputs = outputs['style']
     content_outputs = outputs['content']
     
@@ -19,6 +22,9 @@ def style_content_loss(outputs, style_targets, content_targets, style_weight, co
 
 
 def temporal_loss(prev_img_stylized, target_img, prev_img, curr_img, device):
+    """
+    Computes the optical-flow-based temporal loss between the previous and current frames.
+    """
     # Warp
     warped_img = U.warp_img(prev_img_stylized, prev_img, curr_img, device)
 
