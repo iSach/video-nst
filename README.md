@@ -4,6 +4,8 @@ The goal of this project is to analyze different neural style transfer technique
 
 The project is pretty much composed of two parts. The first one concerns the standard technique as presented by Gatys et al. (2015), and the second one concerns a trained-network-based stylization process (instead of performing the whole optimization process for each image), inspired by Johnson et al. (2016). We tuned and modified both methods in order to try and produce best results, as detailed in the report `report.pdf`.
 
+This project received a grade of `19/20` (best project of the year).
+
 ## Gatys et al. Part
 
 The first part of the project is implemented in the files `vnst.py`, `losses.py`, `style_content_extractor.py` and `utils.py`. It allows for various options to run the different implementations we did in order to easily compare hyper-parameters.
